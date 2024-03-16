@@ -35,22 +35,20 @@
             sortFieldSelect = new ComboBox();
             searchInput = new TextBox();
             productsDataGridView = new DataGridView();
-            vendorCode = new DataGridViewTextBoxColumn();
-            workshopNumber = new DataGridViewTextBoxColumn();
-            price = new DataGridViewTextBoxColumn();
-            name = new DataGridViewTextBoxColumn();
-            type = new DataGridViewTextBoxColumn();
-            img = new DataGridViewTextBoxColumn();
-            pictureBox = new PictureBox();
             sortDirectionSelect = new ComboBox();
             label4 = new Label();
             prevPageBtn = new Button();
             nextPageBtn = new Button();
-            barCodePictureBox = new PictureBox();
-            printBtn = new Button();
+            id = new DataGridViewTextBoxColumn();
+            title = new DataGridViewTextBoxColumn();
+            producttypeid = new DataGridViewTextBoxColumn();
+            article = new DataGridViewTextBoxColumn();
+            description = new DataGridViewTextBoxColumn();
+            image = new DataGridViewTextBoxColumn();
+            productionpersoncount = new DataGridViewTextBoxColumn();
+            productionworkshopnumber = new DataGridViewTextBoxColumn();
+            mincostforagent = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)productsDataGridView).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)barCodePictureBox).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -97,7 +95,7 @@
             sortFieldSelect.AutoCompleteSource = AutoCompleteSource.ListItems;
             sortFieldSelect.DropDownStyle = ComboBoxStyle.DropDownList;
             sortFieldSelect.FormattingEnabled = true;
-            sortFieldSelect.Items.AddRange(new object[] { "По имени", "По номеру цеха", "По цене" });
+            sortFieldSelect.Items.AddRange(new object[] { "наименование", "номер цеха", "минимальная цена для агента" });
             sortFieldSelect.Location = new Point(331, 41);
             sortFieldSelect.Name = "sortFieldSelect";
             sortFieldSelect.Size = new Size(228, 28);
@@ -115,65 +113,12 @@
             // productsDataGridView
             // 
             productsDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            productsDataGridView.Columns.AddRange(new DataGridViewColumn[] { vendorCode, workshopNumber, price, name, type, img });
+            productsDataGridView.Columns.AddRange(new DataGridViewColumn[] { id, title, producttypeid, article, description, image, productionpersoncount, productionworkshopnumber, mincostforagent });
             productsDataGridView.Location = new Point(12, 75);
             productsDataGridView.Name = "productsDataGridView";
             productsDataGridView.RowHeadersWidth = 51;
-            productsDataGridView.Size = new Size(678, 363);
+            productsDataGridView.Size = new Size(1180, 363);
             productsDataGridView.TabIndex = 6;
-            productsDataGridView.CellMouseClick += productsDataGridView_CellMouseClick;
-            // 
-            // vendorCode
-            // 
-            vendorCode.HeaderText = "артикул";
-            vendorCode.MinimumWidth = 6;
-            vendorCode.Name = "vendorCode";
-            vendorCode.SortMode = DataGridViewColumnSortMode.NotSortable;
-            vendorCode.Width = 125;
-            // 
-            // workshopNumber
-            // 
-            workshopNumber.HeaderText = "номер цеха";
-            workshopNumber.MinimumWidth = 6;
-            workshopNumber.Name = "workshopNumber";
-            workshopNumber.Width = 125;
-            // 
-            // price
-            // 
-            price.HeaderText = "цена";
-            price.MinimumWidth = 6;
-            price.Name = "price";
-            price.Width = 125;
-            // 
-            // name
-            // 
-            name.HeaderText = "имя";
-            name.MinimumWidth = 6;
-            name.Name = "name";
-            name.Width = 125;
-            // 
-            // type
-            // 
-            type.HeaderText = "тип";
-            type.MinimumWidth = 6;
-            type.Name = "type";
-            type.Width = 125;
-            // 
-            // img
-            // 
-            img.HeaderText = "Фото";
-            img.MinimumWidth = 6;
-            img.Name = "img";
-            img.Visible = false;
-            img.Width = 125;
-            // 
-            // pictureBox
-            // 
-            pictureBox.Location = new Point(696, 75);
-            pictureBox.Name = "pictureBox";
-            pictureBox.Size = new Size(239, 184);
-            pictureBox.TabIndex = 7;
-            pictureBox.TabStop = false;
             // 
             // sortDirectionSelect
             // 
@@ -217,37 +162,79 @@
             nextPageBtn.UseVisualStyleBackColor = true;
             nextPageBtn.Click += nextPageBtn_Click;
             // 
-            // barCodePictureBox
+            // id
             // 
-            barCodePictureBox.Location = new Point(696, 265);
-            barCodePictureBox.Name = "barCodePictureBox";
-            barCodePictureBox.Size = new Size(239, 138);
-            barCodePictureBox.TabIndex = 12;
-            barCodePictureBox.TabStop = false;
-            barCodePictureBox.Click += barCodePictureBox_Click;
+            id.HeaderText = "id";
+            id.MinimumWidth = 6;
+            id.Name = "id";
+            id.SortMode = DataGridViewColumnSortMode.NotSortable;
+            id.Width = 125;
             // 
-            // printBtn
+            // title
             // 
-            printBtn.Location = new Point(696, 409);
-            printBtn.Name = "printBtn";
-            printBtn.Size = new Size(94, 29);
-            printBtn.TabIndex = 13;
-            printBtn.Text = "Печать";
-            printBtn.UseVisualStyleBackColor = true;
-            printBtn.Click += printBtn_Click;
+            title.HeaderText = "Наименование";
+            title.MinimumWidth = 6;
+            title.Name = "title";
+            title.Width = 125;
+            // 
+            // producttypeid
+            // 
+            producttypeid.HeaderText = "id типа";
+            producttypeid.MinimumWidth = 6;
+            producttypeid.Name = "producttypeid";
+            producttypeid.Width = 125;
+            // 
+            // article
+            // 
+            article.HeaderText = "Артикул";
+            article.MinimumWidth = 6;
+            article.Name = "article";
+            article.Width = 125;
+            // 
+            // description
+            // 
+            description.HeaderText = "Описание";
+            description.MinimumWidth = 6;
+            description.Name = "description";
+            description.Width = 125;
+            // 
+            // image
+            // 
+            image.HeaderText = "Фото";
+            image.MinimumWidth = 6;
+            image.Name = "image";
+            image.Width = 125;
+            // 
+            // productionpersoncount
+            // 
+            productionpersoncount.HeaderText = "Количество человек для производства";
+            productionpersoncount.MinimumWidth = 6;
+            productionpersoncount.Name = "productionpersoncount";
+            productionpersoncount.Width = 125;
+            // 
+            // productionworkshopnumber
+            // 
+            productionworkshopnumber.HeaderText = "Номер цеха";
+            productionworkshopnumber.MinimumWidth = 6;
+            productionworkshopnumber.Name = "productionworkshopnumber";
+            productionworkshopnumber.Width = 125;
+            // 
+            // mincostforagent
+            // 
+            mincostforagent.HeaderText = "Минимальная цена для агента";
+            mincostforagent.MinimumWidth = 6;
+            mincostforagent.Name = "mincostforagent";
+            mincostforagent.Width = 125;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(943, 487);
-            Controls.Add(printBtn);
-            Controls.Add(barCodePictureBox);
+            ClientSize = new Size(1204, 487);
             Controls.Add(nextPageBtn);
             Controls.Add(prevPageBtn);
             Controls.Add(label4);
             Controls.Add(sortDirectionSelect);
-            Controls.Add(pictureBox);
             Controls.Add(productsDataGridView);
             Controls.Add(searchInput);
             Controls.Add(sortFieldSelect);
@@ -258,8 +245,6 @@
             Name = "Form1";
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)productsDataGridView).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)barCodePictureBox).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -273,18 +258,18 @@
         private ComboBox sortFieldSelect;
         private TextBox searchInput;
         private DataGridView productsDataGridView;
-        private PictureBox pictureBox;
-        private DataGridViewTextBoxColumn vendorCode;
-        private DataGridViewTextBoxColumn workshopNumber;
-        private DataGridViewTextBoxColumn price;
-        private DataGridViewTextBoxColumn name;
-        private DataGridViewTextBoxColumn type;
         private ComboBox sortDirectionSelect;
         private Label label4;
         private Button prevPageBtn;
         private Button nextPageBtn;
-        private PictureBox barCodePictureBox;
-        private Button printBtn;
-        private DataGridViewTextBoxColumn img;
+        private DataGridViewTextBoxColumn id;
+        private DataGridViewTextBoxColumn title;
+        private DataGridViewTextBoxColumn producttypeid;
+        private DataGridViewTextBoxColumn article;
+        private DataGridViewTextBoxColumn description;
+        private DataGridViewTextBoxColumn image;
+        private DataGridViewTextBoxColumn productionpersoncount;
+        private DataGridViewTextBoxColumn productionworkshopnumber;
+        private DataGridViewTextBoxColumn mincostforagent;
     }
 }

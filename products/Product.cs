@@ -8,31 +8,27 @@ namespace products
 {
     public class Product
     {
-        public string vendorCode;
-        public string name;
-        public int workshopNumber;
-        public int price;
+        public int id;
+        public string title;
         public string type;
-        public string img;
+        public int articlenumber;
+        public string description;
+        public string image;
+        public int productionpersoncount;
+        public int productionworkshopnumber;
+        public int mincostforagent;
 
-        public Product(string vendorCode, string name, int workshopNumber, int price, string type, string img)
-        { 
-            this.vendorCode = vendorCode;
-            this.name = name;
-            this.workshopNumber = workshopNumber;
-            this.price = price;
-            this.type = type;
-            this.img = img;
-        }
-
-        public Product(string vendorCode, string name, int workshopNumber, int price, string type)
+        public Product(int id, string title, int articlenumber, int mincostforagent, string type = "", string description = "", string image = "", int productionpersoncount = 0, int productionworkshopnumber = 0)
         {
-            this.vendorCode = vendorCode;
-            this.name = name;
-            this.workshopNumber = workshopNumber;
-            this.price = price;
+            this.id = id;
+            this.title = title;
             this.type = type;
-            img = "./placeholderImg.png";
+            this.articlenumber = articlenumber;
+            this.description = description;
+            this.image = image;
+            this.productionpersoncount = productionpersoncount;
+            this.productionworkshopnumber = productionworkshopnumber;
+            this.mincostforagent = mincostforagent;
         }
     }
 }
